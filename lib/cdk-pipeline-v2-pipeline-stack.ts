@@ -2,6 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import { CdkPipelineV2AppStack } from './cdk-pipeline-v2-app-stack';
+import { CfnPipeline } from 'aws-cdk-lib/aws-codepipeline';
 
 export class CdkPipelineV2PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -26,6 +27,12 @@ export class CdkPipelineV2PipelineStack extends cdk.Stack {
         region: 'eu-west-1',
       },
     }));
+
+    pipeline.buildPipeline();
+    
+    const codepipeline = pipeline.pipeline.node.defaultChild as CfnPipeline
+    codepipeline.addOverride('PipelineType', 'V2');
+
 
   }
 }
