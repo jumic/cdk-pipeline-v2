@@ -29,9 +29,9 @@ export class CdkPipelineV2PipelineStack extends cdk.Stack {
     }));
 
     pipeline.buildPipeline();
-    
+
     const codepipeline = pipeline.pipeline.node.defaultChild as CfnPipeline
-    codepipeline.addOverride('PipelineType', 'V2');
+    codepipeline.addOverride('Properties.PipelineType', 'V2');
 
 
   }
