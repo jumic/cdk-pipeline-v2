@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as pipelines from 'aws-cdk-lib/pipelines';
+import { CdkPipelineV2AppStack } from './cdk-pipeline-v2-app-stack';
 
 export class CdkPipelineV2PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -33,6 +34,6 @@ class MyApplication extends cdk.Stage {
   constructor(scope: Construct, id: string, props?: cdk.StageProps) {
     super(scope, id, props);
 
-    new CdkPipelineV2PipelineStack(this, 'CdkPipelineV2AppStack');
+    new CdkPipelineV2AppStack(this, 'CdkPipelineV2AppStack');
   }
 }
