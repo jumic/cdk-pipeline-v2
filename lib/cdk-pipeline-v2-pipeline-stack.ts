@@ -14,6 +14,7 @@ export class CdkPipelineV2PipelineStack extends cdk.Stack {
           connectionArn: 'arn:aws:codestar-connections:eu-west-1:857739166276:connection/fa150468-a35d-4b7c-a9e5-bf510e60f0d0',
         }),
         commands: [
+          'printenv',
           'npm ci',
           'npm run build',
           'npx cdk synth',
