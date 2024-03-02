@@ -14,5 +14,7 @@ export class CdkPipelineV2AppStack extends cdk.Stack {
     const queue2 = new sqs.Queue(this, 'CdkPipelineV2Queu2e', {
       visibilityTimeout: cdk.Duration.seconds(300)
     });
+
+    // test
   }
 }
